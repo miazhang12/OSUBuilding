@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ohio State Buildings</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body ng-app="app">
+	<div id="main" ng-controller="MainCtrl">
+		<h1>{{ title }}</h1>
+	</div>
+	
+	<div class="content" ng-controller="MainCtrl">
+		<div ng-repeat="i in building">
+			<div class="lists">
+            	<p class="id"> {{ i.id }} </p>
+            	<p class="name"> {{ i.name }} </p>
+            	<p class="address"> {{ i.address }} </p>
+            </div>
+          </div>
+     </div>
+     
+	<!-- Modules -->
+    <script src="app.js"></script>
+    <!-- Controllers -->
+    <script src="MainCtrl.js"></script>
+</body>
+</html>
