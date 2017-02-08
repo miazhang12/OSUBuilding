@@ -14,11 +14,12 @@
 			<div class="lists">
             	<p class="id"> {{ i.id }} </p>
             	<p class="name"> {{ i.name }} </p>
-            	<p class="address"> {{ i.address }} </p>
+            	<p class="address"> {{ i.address + ", " + i.zipCode }} </p>
+            	<img ng-src="{{ i.imageUrl }}" height="84" width="84">
             </div>
           </div>
      </div>
-     
+   
 	<!-- Modules -->
     <script src="app.js"></script>
     <!-- Controllers -->
