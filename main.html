@@ -9,20 +9,25 @@
 		<h1>{{ title }}</h1>
 	</div>
 	
-	<div class="content" ng-controller="MainCtrl">
-		<div ng-repeat="i in building">
-			<div class="lists">
+	<!-- Library for sorting and filtering the list -->
+    <script src="http://listjs.com/assets/javascripts/list.min.js"></script>
+	
+	<div id="content" ng-controller="MainCtrl">
+		<input class="search" placeholder="Search" type="text" ng-model="sort"/>
+		<ul class="list" ng-repeat="i in building | filter:sort">
+			<li class="lists">
             	<p class="id"> {{ i.id }} </p>
             	<p class="name"> {{ i.name }} </p>
             	<p class="address"> {{ i.address + ", " + i.zipCode }} </p>
             	<img ng-src="{{ i.imageUrl }}" height="84" width="84">
-            </div>
-          </div>
+            </li>
+          </ul>
      </div>
    
 	<!-- Modules -->
     <script src="app.js"></script>
     <!-- Controllers -->
     <script src="MainCtrl.js"></script>
+    
 </body>
 </html>
