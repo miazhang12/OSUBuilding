@@ -13,7 +13,7 @@
 	<div id="content" ng-controller="MainCtrl">
 		<input class="search" placeholder="Search" type="text" ng-model="sort"/>
 		<ul class="list" ng-repeat="i in building | filter:sort">
-			<li class="lists">
+			<li class="lists" style="list-style: none;">
             	<p class="id"> {{ i.id }} </p>
             	<p class="name"> {{ i.name }} </p>
             	<p class="address"> {{ i.address + ", " + i.zipCode }} </p>
