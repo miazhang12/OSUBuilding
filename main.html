@@ -4,13 +4,11 @@
 	<title>Ohio State Buildings</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
+
 <body ng-app="app">
 	<div id="main" ng-controller="MainCtrl">
 		<h1>{{ title }}</h1>
 	</div>
-	
-	<!-- Library for sorting and filtering the list -->
-    <script src="http://listjs.com/assets/javascripts/list.min.js"></script>
 	
 	<div id="content" ng-controller="MainCtrl">
 		<input class="search" placeholder="Search" type="text" ng-model="sort"/>
