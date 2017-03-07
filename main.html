@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Ohio State Buildings</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 
 <body ng-app="app">
 	<div id="main" ng-controller="MainCtrl">
-		<h1>{{ title }}</h1>
+		<h1 class="text-center">{{ title }}<small class="text-info"> All the buildings listed here</small></h1>
 	</div>
-	
-	<div id="content" ng-controller="MainCtrl">
-		<input class="search" placeholder="Search" type="text" ng-model="sort"/>
-		<ul class="list" ng-repeat="i in building | filter:sort">
-			<li class="lists" style="list-style: none;">
-            	<p class="id"> {{ i.id }} </p>
-            	<p class="name"> {{ i.name }} </p>
-            	<p class="address"> {{ i.address + ", " + i.zipCode }} </p>
-            	<img ng-src="{{ i.imageUrl }}" height="84" width="84">
+	<div class="container-fluid" id="content" ng-controller="MainCtrl">
+		<!-- creates input search with search button at the end -->
+		<form> <!-- search input -->
+  			<div class="input-group">
+    			<input type="text" class="form-control search input-lg" placeholder="Search" ng-model="sort">
+    			<div class="input-group-btn">
+      				<button class="btn btn-lg" type="submit">
+        				<i class="glyphicon glyphicon-search"></i>
+      				</button>
+    			</div>
+  			</div>
+		</form>
+		<ul class="list" ng-repeat="i in building | filter:sort"> <!-- display each buildings -->
+			<li style="list-style: none;">
+            	<div class="row">
+            		<div class="col-md-1"> {{ i.id }} </div>
+            		<div class="col-md-3 lead"> {{ i.name }} </div>
+            		<div class="col-md-5"> {{ i.address + ", " + i.zipCode }} </div>
+            		<img class="col-md-3" ng-src="{{ i.imageUrl }}" class="img-thumbnail img-responsive" height="84" width="84">
+            	</div>
             </li>
           </ul>
      </div>
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 	<!-- Modules -->
     <script src="app.js"></script>
     <!-- Controllers -->
-    <script src="MainCtrl.js"></script>
-    
+    <script src="MainCtrl.js"></script>  
 </body>
 </html>
